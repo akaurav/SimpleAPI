@@ -28,13 +28,18 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-# ...
 # do this after other tasks such as building
+steps:
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
   inputs:
-    command: test
-    projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    command: publish
+    publishWebProjects: false
+    projects: '**/*.csproj'
+    arguments: '-o testpath'
+    zipAfterPublish: false
+    modifyOutputPath: true
+    
 
 - task: VSTest@2
   inputs:
