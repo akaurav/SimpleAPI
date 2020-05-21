@@ -11,7 +11,7 @@ namespace SimpleAPI.Test
         public void GetReturnsMyTemp()
         {
             var returnValue=controller.Get(1);
-            Assert.Equal("No Temp",returnValue.Value);
+            Assert.Equal("Hot Temp",returnValue.Value);
         }
 
         [Fact]
