@@ -19,7 +19,7 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '$(solution)'
+cd    restoreSolution: '$(solution)'
 
 - task: VSBuild@1
   inputs:
@@ -29,7 +29,7 @@ steps:
     configuration: '$(buildConfiguration)'
 
 # do this after other tasks such as building
-steps:
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
   inputs:
@@ -39,7 +39,7 @@ steps:
     arguments: '-o testpath'
     zipAfterPublish: false
     modifyOutputPath: true
-    
+
 
 - task: VSTest@2
   inputs:
