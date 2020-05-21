@@ -29,7 +29,7 @@ steps:
     configuration: '$(buildConfiguration)'
 
 # do this after other tasks such as building
-steps:
+
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
   inputs:
